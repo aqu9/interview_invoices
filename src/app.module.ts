@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from 'schema';
 import { JwtModule } from '@nestjs/jwt';
+import { InvoiceModule } from './invoice/invoice.module';
 config();
 
 @Module({
@@ -16,6 +17,7 @@ config();
       secret: process.env.secret,
       signOptions: { expiresIn: process.env.expiresIn },
     }),
+    InvoiceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
